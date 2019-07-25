@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector, shallowEqual } from 'react-redux';
 
-import { WeatherParamsList, WeatherMainParams, WeatherCityInput, WeatherLoader, WeatherError, WeatherIcon } from './components';
+import { WeatherParamsList, WeatherCityInput, WeatherLoader, WeatherError, WeatherMain } from './components';
 import { loadWeatherData, onCityChange, onCitySubmit } from './logic'
 
 const MainPage = () => {
@@ -16,34 +16,43 @@ const MainPage = () => {
 
     if (imBusy) {
         return (
-            <WeatherLoader />
+            <div className='weather-container'>
+                <WeatherLoader />
+            </div>
         )
     }
     else {
         if (error) {
             return (
-                <>
+                <div className='weather-container'>
                     <WeatherCityInput
                         onSubmit={onCitySubmit(dispatch)}
                         onChange={onCityChange(dispatch)}
                         city={city}
                     />
                     <WeatherError {...error} />
-                </>
+                </div>
             )
         }
         else {
             return (
-                <>
-                    <WeatherIcon {...actual_weather}/>
+                <div className='weather-container'>
                     <WeatherCityInput
                         onSubmit={onCitySubmit(dispatch)}
                         onChange={onCityChange(dispatch)}
                         city={city}
                     />
-                    <WeatherMainParams {...actual_weather} />
-                    <WeatherParamsList {...actual_weather} />
-                </>
+                    <div className='row'>
+                        <div className='col-md'>
+                            <WeatherMain {...actual_weather} />
+                        </div>
+                    </div>
+                    <div className='row'>
+                        <div className='col'>
+                            <WeatherParamsList {...actual_weather} />
+                        </div>
+                    </div>
+                </div>
             )
         }
     }

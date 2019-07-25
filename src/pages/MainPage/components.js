@@ -5,45 +5,36 @@ const CelciusSymbol = () => {
 }
 
 const WeatherLoader = () => {
-    return (<div>LOADING</div>)
+    return (<div className='weather-loading'>LOADING</div>)
 }
 
 const WeatherError = ({ message = 'Unknown Error' }) => {
     return (
-        <div>ERROR: {message}</div>
-    )
-}
-
-const WeatherMainParams = ({
-    city, main, description, country, temp, time
-}) => {
-    return (
-        <div>
-            <ul>
-                <li>City: {city}, {country}</li>
-                <li>Actual temperature: {temp}<CelciusSymbol /></li>
-                <li>Actual time: {time}</li>
-                <li>Description: {main}, {description}</li>
-            </ul>
-        </div>
+        <div className='weather-error'>
+        <h4>ERROR: <strong>{message}</strong></h4></div>
     )
 }
 
 const WeatherParamsList = ({
-    temp_max, temp_min, clouds, humidity, wind, pressure, sunrise, sunset
+    temp_max, temp_min, clouds, humidity, wind, pressure
 }) => {
     return (
-        <div>
-            <ul>
-                <li>Max temperature: {temp_max}<CelciusSymbol /></li>
-                <li>Min temperature: {temp_min}<CelciusSymbol /></li>
-                <li>Pressure: {pressure}</li>
-                <li>Clouds: {clouds}</li>
-                <li>Humidity: {humidity}</li>
-                <li>Wind speed: {wind}</li>
-                <li>The Sun rises at {sunrise}</li>
-                <li>The Sun goes down at {sunset}</li>
-            </ul>
+        <div className='weather-secondary-params mt-3'>
+            <div className='row m-0'>
+                <div className='col-md m-0 mt-3 pb-3'>
+                    <h6>Min temperature: <strong>{temp_min}<CelciusSymbol /></strong></h6>
+                    <h6>Max temperature: <strong>{temp_max}<CelciusSymbol /></strong></h6>
+                </div>
+                <div className='col-md m-0 mt-3 pb-3'>
+                    <h6>Pressure: <strong>{pressure}</strong></h6>
+                    <h6>Wind speed: <strong>{wind}</strong></h6>
+                </div>
+                <div className='col-md m-0 mt-3 pb-3'>
+                    <h6>Clouds: <strong>{clouds}</strong></h6>
+                    <h6>Humidity: <strong>{humidity}</strong></h6>
+                </div>
+            </div>
+
         </div>
     )
 }
@@ -52,9 +43,9 @@ const WeatherCityInput = ({
     onSubmit, city, onChange
 }) => {
     return (
-        <div className='mt-3 mb-3'>
-            <form>
-                <div className="form-group">
+        <div className='weather-form'>
+            <form className='row'>
+                <div className="form-group col-md">
                     <input type='text'
                         value={city}
                         placeholder='City'
@@ -63,34 +54,35 @@ const WeatherCityInput = ({
                             onChange(e.target.value)
                         }} />
                 </div>
-                <div className="form-group">
+                <div className="form-group col-md">
                     <button className="btn btn-block btn-primary" onClick={(e) => {
                         e.preventDefault()
                         onSubmit(city)
-                    }}>Check weather for city</button>
+                    }}>Check weather</button>
                 </div>
             </form>
         </div>
     )
 }
 
-const WeatherIcon = ({icon})=>{
+const WeatherMain = ({ icon = '01d', main, temp, city, country, time }) => {
 
     const urlToIcon = `http://openweathermap.org/img/wn/${icon}@2x.png`
 
     return (
-        <div>
-            <img src={urlToIcon}/>
+        <div className='weather-main'>
+            <img src={urlToIcon}  alt='weather icon'/>
+            <h6><small>{time} <strong>{city}, {country}</strong></small></h6>
+            <h3><strong>{temp}<CelciusSymbol /> / {main}</strong></h3>
         </div>
     )
 }
 
 
 export {
-    WeatherMainParams,
     WeatherParamsList,
     WeatherCityInput,
     WeatherLoader,
     WeatherError,
-    WeatherIcon
+    WeatherMain
 }

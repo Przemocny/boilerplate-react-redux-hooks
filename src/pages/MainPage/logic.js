@@ -49,10 +49,12 @@ const loadWeatherData = (dispatch, city = null) => {
     return prom.then((data) => {
         const preprocessedData = preprocessActualWeatherResponse(data)
         dispatch(actualWeatherFetchedWithSuccess(preprocessedData))
+        return data
     })
         .catch(({ response }) => {
             const { data } = response
             dispatch(actualWeatherFetchedWithError(data))
+            return data
         })
 }
 
