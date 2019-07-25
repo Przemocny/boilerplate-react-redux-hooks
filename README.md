@@ -7,6 +7,10 @@
 `yarn && npm start` or `npm install && npm start`
 
 
+## Build & run
+`yarn build & serve -s build`
+
+
 ## Run tests
 `npm test`
 
