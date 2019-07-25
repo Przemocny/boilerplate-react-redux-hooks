@@ -74,11 +74,23 @@ const WeatherCityInput = ({
     )
 }
 
+const WeatherIcon = ({icon})=>{
+
+    const urlToIcon = `http://openweathermap.org/img/wn/${icon}@2x.png`
+
+    return (
+        <div>
+            <img src={urlToIcon}/>
+        </div>
+    )
+}
+
 
 export {
     WeatherMainParams,
     WeatherParamsList,
     WeatherCityInput,
     WeatherLoader,
-    WeatherError
+    WeatherError,
+    WeatherIcon
 }

@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector, shallowEqual } from 'react-redux';
 
-import { WeatherParamsList, WeatherMainParams, WeatherCityInput, WeatherLoader, WeatherError } from './components';
+import { WeatherParamsList, WeatherMainParams, WeatherCityInput, WeatherLoader, WeatherError, WeatherIcon } from './components';
 import { loadWeatherData, onCityChange, onCitySubmit } from './logic'
 
 const MainPage = () => {
@@ -35,6 +35,7 @@ const MainPage = () => {
         else {
             return (
                 <>
+                    <WeatherIcon {...actual_weather}/>
                     <WeatherCityInput
                         onSubmit={onCitySubmit(dispatch)}
                         onChange={onCityChange(dispatch)}

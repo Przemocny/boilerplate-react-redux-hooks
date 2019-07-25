@@ -25,7 +25,7 @@ const preprocessActualWeatherResponse = (data) => {
     delete preprocessed['type']
     delete preprocessed['id']
     delete preprocessed['message']
-    delete preprocessed['icon']
+    // delete preprocessed['icon']
 
     // convert to moment dt
     preprocessed['time'] = moment(preprocessed['time'], 'X').utc().local().format('HH:mm DD.MM.YYYY')
