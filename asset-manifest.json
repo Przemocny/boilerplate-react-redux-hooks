@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/boilerplate-react-redux-hooks/static/css/main.357a5197.chunk.css",
+    "main.js": "/boilerplate-react-redux-hooks/static/js/main.efa2b36c.chunk.js",
+    "main.js.map": "/boilerplate-react-redux-hooks/static/js/main.efa2b36c.chunk.js.map",
+    "runtime~main.js": "/boilerplate-react-redux-hooks/static/js/runtime~main.ecd7f177.js",
+    "runtime~main.js.map": "/boilerplate-react-redux-hooks/static/js/runtime~main.ecd7f177.js.map",
+    "static/js/2.155b0bc8.chunk.js": "/boilerplate-react-redux-hooks/static/js/2.155b0bc8.chunk.js",
+    "static/js/2.155b0bc8.chunk.js.map": "/boilerplate-react-redux-hooks/static/js/2.155b0bc8.chunk.js.map",
+    "index.html": "/boilerplate-react-redux-hooks/index.html",
+    "precache-manifest.908f60030ba4e7649f48e960fb6eed4e.js": "/boilerplate-react-redux-hooks/precache-manifest.908f60030ba4e7649f48e960fb6eed4e.js",
+    "service-worker.js": "/boilerplate-react-redux-hooks/service-worker.js",
+    "static/css/main.357a5197.chunk.css.map": "/boilerplate-react-redux-hooks/static/css/main.357a5197.chunk.css.map"
+  }
+}
